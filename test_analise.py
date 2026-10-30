@@ -1,4 +1,4 @@
-from analise import win_rate, ganho_medio, expectancy, max_drawdown
+from analise import win_rate, ganho_medio, expectancy, max_drawdown, ler_resultados
 
 DADOS = [50.0, -20.0, 35.5, -15.0]
 
@@ -24,3 +24,6 @@ def test_max_drawdown_lista_vazia():
 
 def test_expectancy():
     assert expectancy(DADOS) == 12.625
+
+def test_ler_resultados():
+    assert ler_resultados("exemplo_trades.csv") == [50.0, -20.0, 35.5, -15.0]

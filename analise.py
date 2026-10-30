@@ -1,5 +1,5 @@
 import csv
-
+import argparse
 
 def ler_resultados(caminho):
     """Lê o CSV e devolve a lista de resultados como floats."""
@@ -57,16 +57,25 @@ def max_drawdown(resultados):
     return max_drawdown
 
 def main():
-    resultados = ler_resultados("exemplo_trades.csv")
+    parser = argparse.ArgumentParser(description="Analisa um diário de trades em CSV.")
+    parser.add_argument(
+        "ficheiro",
+        nargs="?",                      
+        default="exemplo_trades.csv",   
+        help="caminho para o ficheiro CSV (por omissão: exemplo_trades.csv)",
+    )
+    args = parser.parse_args()
+
+    resultados = ler_resultados(args.ficheiro)
     if not resultados:
         print("Sem trades.")
         return
 
-    print(f"Total:       {total(resultados):.2f}")
-    print(f"Win rate:    {win_rate(resultados):.1%}")
-    print(f"Ganho médio: {ganho_medio(resultados):.2f}")
-    print(f"Perda média: {perda_media(resultados):.2f}")
-    print(f"Expectancy:  {expectancy(resultados):.2f}")
+    print(f"Total:        {total(resultados):.2f}")
+    print(f"Win rate:     {win_rate(resultados):.1%}")
+    print(f"Ganho médio:  {ganho_medio(resultados):.2f}")
+    print(f"Perda média:  {perda_media(resultados):.2f}")
+    print(f"Expectancy:   {expectancy(resultados):.2f}")
     print(f"Drawdown máx: {max_drawdown(resultados):.2f}")
 
 if __name__ == "__main__":
