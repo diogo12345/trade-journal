@@ -37,6 +37,24 @@ def perda_media(resultados):
         return 0
     return sum(perdas) / len(perdas)
 
+def expectancy(resultados):
+    if not resultados:
+        return 0
+    expect = sum(resultados) / len(resultados)
+    return expect
+
+def max_drawdown(resultados):
+    max_drawdown = 0
+    pico = 0
+    capital = 0
+    for n in resultados:
+        capital += n
+        if capital > pico:
+            pico = capital
+        drawdown = pico - capital
+        if drawdown > max_drawdown:
+            max_drawdown = drawdown
+    return max_drawdown
 
 def main():
     resultados = ler_resultados("exemplo_trades.csv")
@@ -48,7 +66,8 @@ def main():
     print(f"Win rate:    {win_rate(resultados):.1%}")
     print(f"Ganho médio: {ganho_medio(resultados):.2f}")
     print(f"Perda média: {perda_media(resultados):.2f}")
-
+    print(f"Expectancy:  {expectancy(resultados):.2f}")
+    print(f"Drawdown máx: {max_drawdown(resultados):.2f}")
 
 if __name__ == "__main__":
     main()
