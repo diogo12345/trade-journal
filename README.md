@@ -7,7 +7,7 @@ Ferramenta de linha de comandos em Python para analisar um diário de trades a p
 - Total de resultados
 - Win rate
 - Ganho médio e perda média
-- Expectancy e drawdown máximo *(em desenvolvimento)*
+- Expectancy e drawdown máximo
 
 ## Como usar
 
@@ -38,6 +38,8 @@ Total:       50.50
 Win rate:    50.0%
 Ganho médio: 42.75
 Perda média: -17.50
+Expectancy:   12.62
+Drawdown máx: 20.00
 ```
 
 ## Licença
