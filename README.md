@@ -1,5 +1,5 @@
 # Trade Journal
-
+![Tests](https://github.com/diogo12345/trade-journal/actions/workflows/tests.yml/badge.svg)
 Ferramenta de linha de comandos em Python para analisar um diário de trades a partir de um ficheiro CSV.
 
 ## O que calcula
@@ -38,7 +38,7 @@ Total:       50.50
 Win rate:    50.0%
 Ganho médio: 42.75
 Perda média: -17.50
-Expectancy:   12.62
+Expectancy:   12.625
 Drawdown máx: 20.00
 ```
 
